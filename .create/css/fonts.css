@@ -34,6 +34,16 @@
 		url("../fonts/GothamProRegular.woff") format("woff");
    }
 
+
+@font-face {
+    font-family: GothamProBlack;
+	src: url("../fonts/GothamProBlack.eot");
+	src: url("../fonts/GothamProBlack.svg") format('svg'),
+		url("../fonts/GothamProBlack.ttf") format('truetype'),		
+		url("../fonts/GothamProBlack.otf") format("opentype"),
+		url("../fonts/GothamProBlack.woff") format("woff");
+   }
+
 /*
 @font-face {
     font-family: ;
@@ -43,3 +53,4 @@
 		url("../fonts/.otf") format("opentype"),
 		url("../fonts/.woff") format("woff");
    }*/
+

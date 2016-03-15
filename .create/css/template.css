@@ -60,3 +60,12 @@ div{ margin: 0 auto;}
     transform: translate(-50%,-50%);
 }
 
+
+
+.div-table{ display: table!important;}
+.div-table-cell{ 
+    display: table-cell!important;
+    vertical-align: middle;
+}
+.content{ position: relative; z-index: 15;}
+.full{ width: 100%;}
