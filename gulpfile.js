@@ -26,6 +26,8 @@ var file ={
             './bower_components/bootstrap/dist/css/bootstrap.min.css',
             './.create/css/fonts.css',
             './.create/css/template.css',
+            './.create/css/magnific-popup.css',
+            './.create/css/pop-up.css',
             './.create/css/style.css',
             './.create/css/media.css']    
 } 
@@ -129,7 +131,7 @@ gulp.task('js:set', function () {
 });
 
 gulp.task('css-concat', function () {         
-    return gulp.src([file.css[0], file.css[1], file.css[2], file.css[3], file.css[4], file.css[5] ])
+    return gulp.src([file.css[0], file.css[1], file.css[2], file.css[3], file.css[4], file.css[5], file.css[6], file.css[7] ])
         .pipe(concat(concatConfig.file))        
         .pipe(gulp.dest('.create/tmp'))
 });

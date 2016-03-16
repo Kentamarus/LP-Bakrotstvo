@@ -68,4 +68,5 @@ div{ margin: 0 auto;}
     vertical-align: middle;
 }
 .content{ position: relative; z-index: 15;}
-.full{ width: 100%;}
+.full{ width: 100%!important;}
+.full-max{ max-width: 100%!important;}

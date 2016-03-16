@@ -1,23 +1,165 @@
-@media (min-width: 1024px){
+@media (min-width: 100px){
     .container{
         width: 980px;
     }    
 }
-@media (max-width: 1024px){
- 
-}
+/*
 
 @media (max-width: 768px){
     
+    header .item-col:first-child,
+    header .item-col-middle{ background: none;}
+    .block-images .item {    
+        min-height: 260px;
+        padding: 0 25px;
+    }
+    .block-images p {
+        line-height: 18px;
+    }
+    .variants .name,
+    .block-images .title,
+    .name{
+        margin-bottom: 0;
+    }    
+    .signature {
+        margin: 60px 0 60px 0;
+    }
+    .section-news .item-col {
+        min-height: 245px;
+    }
+    .block-prices,
+    .variants .title{ padding: 0;}
+    .variants .block-images .item{ min-height: 220px;}
+    .freedom .item:last-child {
+        margin-right: auto;
+        width: 100%;
+    }
 }
 @media (max-width: 640px){
+    header .item-col{ width: 50%;}
+    header .item-col:last-child{ float: none; width: 100%;}
+    .will-call{
+        float: none;
+        margin: 5px 0;
+        width: 100%;
+        margin-top: 130px;
+    }
+    .main-form .item-col{
+        padding: 0!important;
+        text-align: center;
+    }
+    .services .item-col{ width: 50%;}
+    .title.line-height {
+        padding: 15px 0;     
+    }
+    .steps .block-images .item {
+        min-height: 216px;
+    }
+    .variants .title,
+    .steps .title{
+        font-size: 20px;
+        line-height: 25px;
+        margin-bottom: 10px;
+    }
     
+    .steps .div-table-cell {
+        height: auto;
+        line-height: 36px;
+        padding: 15px 0;
+    }
+    .steps .item{ margin-bottom: 3px;}
+    .section-small{ padding-bottom: 15px;}
+    
+    .variants .item,
+    .steps .item {        
+        background-size: 130%;
+    }
+    .signature{ margin: 0;}
+    
+    .section-news .item-col {
+        min-height: 150px;
+    }
+    .minHeight190 .btn {
+        width: 220px!important;
+    }
+    
+    .section-clock {
+        position: relative;
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .freedom .item {
+        margin-right: 0;
+        float: none;
+    }
+    .freedom .text-empty {
+        margin-right: 0;
+        margin-bottom: 10px;
+        padding-left: 14px;
+        max-width: 243px;
+    }
+    .freedom .btn.btn-primary {
+        width: 246px;
+    }
+    .location {
+    
+        position: relative;
+        left: inherit;
+        top: inherit;
+        margin-top: 15px;
+        width: 100%;
+    }
+    .location .div-phone{
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        max-width: 380px;
+    }
+    .location .div-phone:after,
+    .location .div-phone:before
+    { display: none;}
+    
+    .minHeight190 {
+        min-height: 0;
+        padding-bottom: 15px;
+    }    
 }
 
-@media (max-width: 500px){
+@media (max-width: 500px){    
+    .main-form {
+        background-color: #f0f0f0;
+        margin: 0 -15px;
+        padding: 0 15px 15px 15px;
+        pad-bottom: 30px;
+    }
     
+    .steps .base{
+        color:#303033;
+    }
+    .variants .item,
+    .steps .item{
+        background: none;
+    }
+    .block-images .item{ padding: 0 5px;}
+    .block-images p{ font-size: 15px; line-height: 20px; }
+    .signature p{ padding: 0; text-align: justify;}
+    .section-news .item-col {
+        min-height: 0;
+        margin-bottom: 35px;
+    }
+    .variants .block-prices .div-table-cell {
+        height: auto;
+        line-height: 20px;
+    }
+    .grid td {    
+        font-size: 13px;
+    }
+    .freedom{ padding-bottom: 0; }
+    .location{
+        margin: 0 -15px;
+    }
 }
 
 @media (max-width: 400px){
     
 }
+*/

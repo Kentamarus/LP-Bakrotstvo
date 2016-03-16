@@ -10,23 +10,72 @@
         <link rel="icon" href="images/favicon.png">            
         <link rel="stylesheet" type="text/css" href="style/bundle.css">      
     </head>
-<body>
-    
+<body>    
     <div class="container-fluid main">                                       
-                     
+                    
+		 <div class="modal fade" id="callForm" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content pop-up full call-answer">                   
+                    <a href="javascript:void(0)" class="btn-close" data-target="#callForm" ></a>                                                                 
+                     <div class="thanks">                    
+                        <div class="title">
+                            <span class="fontBold btn-block">Спасибо за заявку!</span>                                                                                          
+                        </div>
+                        <p>Мы свяжемся с Вами <br>в течении получаса</p>
+                    </div>
+                </div>                                                  
+              </div>   
+          </div>  
+       
+       <div id="mm-1" class="mm-page">
+            <div class="hidden">
+                <div class="popup-form pop-up full call-answer order zoom-anim-dialog " id="callAnswer" >
+                    <div class="block-base-windows overfow-hidden">
+                        <div class="block-before overfow-hidden">                                                                                                   
+							<div class="title">
+								<p>
+									<span class="fontBold btn-block">Введите свои данные</span>                                        
+									<i>чтобы мы могли <br>связатся с Вами</i>
+								</p>
+							</div>                               
+							<form class="call-back-form">
+								<input type="hidden" class="subject" name="subject">
+								<ul class="ul-form">
+									<li>
+										<input type="text" class="people text-empty ico ico-arrow" required="" name="people" placeholder="Ваше имя">
+									</li>
+									<li>          							
+										<input type="tel" class="text-empty ico ico-arrow" required="" name="phone" placeholder="Ваш телефон">
+									</li>
+								</ul>
+								<button type="submit" data-successful class="btn btn-primary full">Отправить заявку</button>    
+							</form>                        
+                        </div>                                                
+                        <div class="thanks">                    
+							<div class="title">
+								<span class="fontBold btn-block">Спасибо за заявку!</span>                                                                                          
+							</div>
+							<p>Мы свяжемся с Вами <br>в течении получаса</p>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
        <header class="row">                                                       
            <div class="container clearfix">
-               <div class="col-sm-4 item-col">
+               <div class="col-xs-3 item-col">
                    <a href="index.html" class="navbar-brand"></a>
                </div>
-               <div class="col-sm-4 item-col item-col-middle">
-                   <h1 class="title">Арбитраж, банктротство
-юридическихе лиц и граждан</h1>
+               <div class="col-xs-6 item-col item-col-middle">
+                   <div class="base">
+                   		<h1 class="title div-table"><i class="div-table-cell">Арбитраж, банктротство юридическихе лиц и граждан</i></h1>
+                   </div>
                </div>
-               <div class="col-sm-4 item-col">
+               <div class="col-xs-3 item-col">
                     <div class="will-call">
                         <i>+ 7 (812) 454 - 20 -20</i>
-                       <a href="#callAnswer" class="call btn btn-primary">Заказать звонок</a>
+                       <a href="#callAnswer" class="call btn btn-primary" data-effect="mfp-move-horizontal">Заказать звонок</a>
                    </div>  
                </div>
            </div>
@@ -39,8 +88,8 @@
                 <div class="main-form clearfix">
                     <div class="title size24 line-height text-center">Мы поможем вернуть долги любой сложности </div>
                     <form class="call-back-form">
-                        <div class="col-sm-4 item-col"><input type="text" class="text-empty" required name="people" placeholder="Ваше имя"></div>
-                        <div class="col-sm-4 item-col item-col-middle"><input type="text" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
+                        <div class="col-sm-4 item-col"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
+                        <div class="col-sm-4 item-col item-col-middle"><input type="tel" required class="text-empty" name="phone" placeholder="Ваш телефон"></div>
                         <div class="col-sm-4 item-col"><button type="submit" class="btn btn-primary">Узнать подробнее</button></div>
                     </form>                    
                 </div>                
@@ -50,23 +99,23 @@
         <section class="row services">
             <div class="container">
                <div class="clearfix">
-                   <div class="col-xs-3 item-col">
+                   <div class="col-xs-3 item-col item1">
                       <div class="image">
                           <img src="images/icons/ico1.png" alt="" class="img-center-vertical">
                       </div>
                        <p>Должник не платит?</p>
                    </div>
-                   <div class="col-xs-3  item-col">
+                   <div class="col-xs-3  item-col item2">
                       <div class="image"><img src="images/icons/ico2.png" alt="" class="img-center-vertical"></div>
-                       <p>Выиграли суд, но не  понимаете, что делать  дальше?</p>
+                       <p>Выиграли суд, но не <br>понимаете, что делать  дальше?</p>
                    </div>
-                   <div class="col-xs-3  item-col">
+                   <div class="col-xs-3  item-col item3">
                       <div class="image"><img src="images/icons/ico3.png" alt="" class="img-center-vertical"></div>
-                       <p>Исполнительный лист есть, а у должника  нечего брать?</p>
+                       <p>Исполнительный <br> лист есть, а у должника  нечего брать?</p>
                    </div>
-                   <div class="col-xs-3 item-col">
+                   <div class="col-xs-3 item-col item4">
                       <div class="image"><img src="images/icons/ico4.png" alt="" class="img-center-vertical"></div>
-                       <p>Запустили исполнительное производство, но приставы ничего не делают?</p>
+                       <p>Запустили исполнительное производство, но приставы ничего <br> не делают?</p>
                    </div>
                </div>
                 <h3 class="title">Тогда наши услуги для Вас!</h3>
@@ -81,8 +130,8 @@
                 <div class="main-form clearfix">
                     <h4 class="title size24 line-height text-center">Хотите узнать как это работает?</h4>
                     <form class="call-back-form">
-                        <div class="col-sm-4 item-col"><input type="text" class="text-empty" required name="people" placeholder="Ваше имя"></div>
-                        <div class="col-sm-4 item-col item-col-middle"><input type="text" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
+                        <div class="col-sm-4 item-col"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
+                        <div class="col-sm-4 item-col item-col-middle"><input type="tel" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
                         <div class="col-sm-4 item-col"><button type="submit" class="btn btn-primary">Узнать подробнее</button></div>
                     </form>                    
                 </div>                
@@ -164,15 +213,15 @@
                 <div class="main-form clearfix">
                     <h6 class="title size24 line-height text-center">Хотите сэкономить время и деньги?</h6>
                     <form class="call-back-form">
-                        <div class="col-sm-4 item-col"><input type="text" class="text-empty" required name="people" placeholder="Ваше имя"></div>
-                        <div class="col-sm-4 item-col item-col-middle"><input type="text" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
+                        <div class="col-sm-4 item-col"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
+                        <div class="col-sm-4 item-col item-col-middle"><input type="tel" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
                         <div class="col-sm-4 item-col"><button type="submit" class="btn btn-primary">Заказать консультацию</button></div>
                     </form>                    
                 </div>                
             </div>
         </section>
         
-         <section class="row section-news">
+         <div class="row section-news">
             <div class="container content">
                 <div class="title">У нас для Вас отличная новость! <i>Теперь Вы можете заказать ведение всей процедуры в одном месте.</i> </div>
                 <div class="clearfix">
@@ -196,22 +245,22 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         
-        <section class="row back minHeight190">
+        <div class="row back minHeight190">
             <div class="container content">                                
                 <div class="main-form clearfix">
-                    <h6 class="title size24 line-height text-center">Дальше действовать будем мы!</h6>
+                    <div class="title size24 line-height text-center">Дальше действовать будем мы!</div>
                     <form class="call-back-form">
-                        <div class="col-sm-4 item-col"><input type="text" class="text-empty" required name="people" placeholder="Ваше имя"></div>
-                        <div class="col-sm-4 item-col item-col-middle"><input type="text" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
+                        <div class="col-sm-4 item-col"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
+                        <div class="col-sm-4 item-col item-col-middle"><input type="tel" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
                         <div class="col-sm-4 item-col"><button type="submit" class="btn btn-primary full">Заказать звонок</button></div>
                     </form>                    
                 </div>                
             </div>
-        </section>
+        </div>
         
-        <section class="row variants">
+        <div class="row variants">
             <div class="container content">
                 <div class="title div-table"><span class="div-table-cell">Для Вашего удобства мы подготовили три варианта сотрудничества</span></div>
                 <div class="block-images">
@@ -280,39 +329,71 @@
                 </div>
                 
             </div>
-        </section>
+        </div>
         
-        <section class="row back minHeight190">
+        <div class="row back minHeight190">
             <div class="container content">                                
                 <div class="main-form clearfix">
                     <h6 class="title size24 line-height text-center">Хотите получить развернутое предложение?</h6>
                     <form class="call-back-form">
-                        <div class="col-sm-4 item-col"><input type="text" class="text-empty" required name="people" placeholder="Ваше имя"></div>
-                        <div class="col-sm-4 item-col item-col-middle"><input type="text" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
+                        <div class="col-sm-4 item-col"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
+                        <div class="col-sm-4 item-col item-col-middle"><input type="tel" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
                         <div class="col-sm-4 item-col"><button type="submit" class="btn btn-primary full">Получить предложения</button></div>
                     </form>                    
                 </div>                
             </div>
-        </section>
+        </div>
         
-<!--
-         <section class="row freedom">
+         <div class="row freedom">
             <div class="container">
                 <div class="title">С готовностью рассмотрим и другие варианты сотрудничества удобные именно в Вашей ситуации</div>
-                <p>В любом случае, предлагаемый нами продукт, является новацией для рынка юридических услуг и по-настоящему действенным инструментом борьбы с должниками. 
+                <p class="size17">В любом случае, предлагаемый нами продукт, является новацией для рынка юридических услуг и по-настоящему действенным инструментом борьбы с должниками. 
 А успешность его применения напрямую зависит от оперативности Вашего обращения в нашу компанию. Поэтому предлагаем начать действовать прямо сейчас!</p>
+               <div class="div-phone">
+                   +7 (812) 454-20-20
+               </div>
+                <div class="main-form clearfix">
+                    <div class="title size20 line-height text-center">Либо Вы можете записаться на бесплатную консультацию в офисе </div>
+                    <form class="call-back-form">
+                        <div class="item"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
+                        <div class="item"><input type="tel" class="text-empty" required name="phone" placeholder="Ваш телефон"></div>
+                        <div class="item inner-big">
+                            <input type="text" required class="small text-empty" name="date" placeholder="Дата">
+                            <input type="text" required class="small text-empty" name="time" placeholder="Время">
+                        </div>
+                        <div class="item"><button type="submit" class="btn btn-primary">Записаться</button></div>
+                    </form>                    
+                </div> 
             </div>
-        </section>
--->
-<!--
-        <section class="row">
-            <div class="container">
-                <h1></h1>
-            </div>
-        </section>
--->
+        </div>
         
-          
+        <div class="row block-map">
+            <div class="container relative">
+                <div class="location">
+                    <span class="name">Наши контакты</span>
+                    <p class="description">
+                        ООО «Юридическое Бюро Гарант» <br>
+    195112, г. Санкт-Петербург, <br>
+    Заневский пр., д. 71, корп. 2, офис 1104
+                    </p>
+                    <div class="div-phone">
+                       +7 (812) 454-20-20
+                    </div>
+
+                    <div class="text-center code">
+                        mmx@4542020.ru <br>
+                        ИНН:7816599649 <br>
+                        ПП:781601001 <br>
+                        Банк: ЗАО «Райффайзенбанк» <br>
+                        Р/С: 40702810203000000465 <br>
+                        БИК: 044030723 <br>
+                        К/С: 30101810100000000723
+                    </div>                
+                </div>    
+           </div>  
+           <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=80zd57cvFrZq9LlrOfDzxMVCZalUiA-h&width=100%&height=500&lang=ru_UA&sourceType=constructor"></script>       
+        </div>
+                  
         <footer class="row">
                <div class="container">                    
                    <address class="p">Все права защищены 2016 г.</address>
@@ -326,13 +407,6 @@
         <script src="libraries/bootstrap.min.js"></script>
         <script src="libraries/jquery.validate.min.js"></script>        
         
-        <script src="scripts/scripts.js"></script>                    
-        
-        <script>
-        $(function(){    
-            Browser.init();
-            Site.Init();     
-        })
-        </script>
+        <script src="scripts/scripts.js"></script>                            
 </body>
 </html>

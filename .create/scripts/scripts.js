@@ -2,12 +2,23 @@
 $(function(){
     
     Browser.init();
-    Site.Init();     
-
+    Site.init();     
 });
 
 var Site = new function () {
-    this.Init = function(){
+	 this.parseUrl = function() {
+        switch (location.hash) {
+        case "#callAnswer":
+            $.magnificPopup.open({
+                items: {
+                    src: "#callAnswer"
+                },
+                type: "inline"
+            }, 0)
+        }
+    }
+    this.init = function(){
+		this.parseUrl();
         
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
@@ -30,83 +41,99 @@ var Site = new function () {
             );
         });    
         
-//         $('input[type=tel]').mask("+7(999) 999-9999");
+	 $('input[type=tel]').mask("+7(999) 999-9999");
                
-     $(".call-back-form").each(function(){
-		var it = $(this);
-		it.validate({
-			rules: {
-				name: { required: true },
-				phone: { required: true },
-				email: { required: true }
-			},
-			messages: {
-
-			},
-			errorPlacement: function(error, element) {
-
-			},
-			submitHandler: function(form) {
-				var thisForm =$(form);
-               
-                $(this).find("input").val("");                                                 
-               
-                var value = [
-                        {old:'.people', id:"fullName"},
-                        {old:'.phone', id:"phone"},
-                        {old:'.email', id:"email"}
-                ];
-                var temp = null;
-                for(i = 0; i<3; i++)
-                    {
+     $(".call-back-form").each(function() {
+            var it = $(this);
+            it.validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    phone: {
+                        required: true
+                    },
+                    email: {
+                        required: true
+                    }
+                },
+                messages: {},
+                errorPlacement: function(error, element) {},
+                submitHandler: function(form) {
+                    var thisForm = $(form);
+                    
+                    thisForm.find("input[type=tel]").removeClass("focus");
+                    thisForm.find(".mask").removeClass("active");
+                    
+                    $(this).find("input").val("");
+                    var value = [{
+                        old: '.people',
+                        id: "people"
+                    }, {
+                        old: '.phone',
+                        id: "phone"
+                    }, {
+                        old: '.email',
+                        id: "email"
+                    }];
+                    var temp = null;
+                    for (i = 0; i < 3; i++) {
                         temp = thisForm.find(value[i].old);
-                        if (temp!=undefined) 
-                        {
+                        if (temp != undefined) {
                             var newForm = thisForm.find(value[i].old).attr("id", value[i].id).attr("name", value[i].id);
                             thisForm.find(value[i].old).html(newForm);
                         }
-                    }
-                
-				$.ajax({
-					type: "POST",
-					url: "main.php",
-					data: thisForm.serialize()
-				}).done(function() {
-					$(this).find("input").val("");
-                    
-                    if (thisForm.find("input[type='submit']").data("successful")!=undefined)
-                    {
-                        thisForm.parent().animate({height:0},500,function(){
-                            $(".thanks").show();                        
-                        });                            
-                    }
-                    else
-                    {
-                        $("#myModal .call-answer").addClass("small-window");
-                        $('#myModal').modal({show: 'true'});                                                
                     }    
                     
-					setTimeout(function() {
-						$('.modal').modal('hide');    
-					},3000);
-					$(".call-back-form").trigger("reset");
-				});
-				return false;
-                
-                
+                    thisForm.find("input[type='tel']").val("+375 " + thisForm.find("input[type='tel']").val());                    
+                    var str = thisForm.serialize();
+                    thisForm.find("input").val("");                                      
+					    					
+                    $.ajax({
+                        type: "POST",
+                        url: "back-end/main.php",
+                        data: str
+                    }).done(function() {
+                        
+                        $(this).find("input").val("");                                           
+                        
+                        if (thisForm.find("[type='submit']").data("successful") != undefined) {
+                            thisForm.parent().animate({height: 0}, 500, function() {$(".thanks").show();});
+                        } else  $('#callForm').modal({show: 'true'}).find(".call-answer").addClass("small-window");
 
-			},
-			success: function() {
-
-			},
-			highlight: function(element, errorClass) {
-				$(element).addClass('error');
-			},
-			unhighlight: function(element, errorClass, validClass) {
-				$(element).removeClass('error');
-			}
-		})
-	});
+                        setTimeout(function() {
+                            $('.modal').modal('hide');
+                            $.magnificPopup.close();
+                        }, 3000);                    
+                        $(".call-back-form").trigger("reset");
+                    });
+                    return false;
+                },
+                success: function() {},
+                highlight: function(t, errorClass) {
+                    $(t).addClass('error'); 
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('error');                    
+                }
+            })
+        });
+        
+         $('.call').magnificPopup({
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 200,
+            callbacks: {
+                beforeOpen: function() {
+                   this.st.mainClass = this.st.el.attr('data-effect');
+                }
+              },
+              midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.            
+        });  
         
     };
 };
@@ -177,7 +204,7 @@ var Browser = new function() {
     };
     this.viewPort = function() {
         var def = document.querySelector("meta[name=viewport]");
-        var view = '<meta name="viewport" content="width=device-width">';
+        var view = '<meta name="viewport" content="width=980">';
         if (def != null) {            
             if (this.isIpad()) { 
                 def.remove();

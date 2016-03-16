@@ -9,7 +9,7 @@ try {
         
         $email->to = "bear-wolf@ukr.net";
         $email->from = "Новая заявка с сайта 'TopSnab'";
-        $email->name = trim($_POST["fullName"]);
+        $email->name = trim($_POST["people"]);
         $email->phone = trim($_POST["phone"]);
         $email->description = trim($_POST['view']);
         $email->theme = "Content-type: text/plain; charset=\"utf-8\"\n From: $email->from";
