@@ -616,3 +616,10 @@ footer address{
 .main-top .title.line-height {
     padding: 39px 0 32px 0;
 }
+
+.no-form{
+	min-height: 172px;
+}
+.no-form .title{
+	line-height: 90px;
+}
