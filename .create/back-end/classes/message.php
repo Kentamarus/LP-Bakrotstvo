@@ -8,7 +8,9 @@ class message{
     var $name;
     var $email;
     var $phone;
-    var $description;    
+    
+	var $data;    
+    var $_time;    
         
     public function __constructor($to, $from, $name, $phone, $description)
     {   
@@ -25,9 +27,9 @@ class message{
     {        
         $message = "Имя: $this->name \nТелефон: $this->phone";
         
-        if (empty($this->description)!=1)
+        if (empty($this->data)!=1)
         {
-            $message = "$message \n Заказ окна $this->description";
+            $message = "$message\nДата: $this->data\nЧас: $this->_time";
         }
             
         return mail($this->to, $this->from, $message, $this->theme);        

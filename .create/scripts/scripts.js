@@ -5,6 +5,33 @@ $(function(){
     Site.init();     
 });
 
+
+
+// Data picker
+$(function(){
+	$.datepicker.setDefaults(
+		$.extend($.datepicker.regional["ru"])
+	);
+		$("#datepicker").datepicker();
+	
+	$.datepicker.regional['ru'] = {
+		closeText: 'Закрыть',
+		prevText: '&#x3c;Пред',
+		nextText: 'След&#x3e;',
+		currentText: 'Сегодня',
+		monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+		'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+		monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+		'Июл','Авг','Сен','Окт','Ноя','Дек'],
+		dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+		dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+		dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+		dateFormat: 'dd.mm.yy', firstDay: 1,
+		isRTL: false};
+	  $.datepicker.setDefaults($.datepicker.regional['ru']);
+});
+
+
 var Site = new function () {
 	 this.parseUrl = function() {
         switch (location.hash) {
@@ -16,10 +43,10 @@ var Site = new function () {
                 type: "inline"
             }, 0)
         }
-    }
+    }	
     this.init = function(){
 		this.parseUrl();
-        
+     		
         $(".navbar-toggle").bind("click", function(e){
             e.preventDefault();
             var obj = $(this).closest(".container").find("#navbar");
@@ -42,6 +69,12 @@ var Site = new function () {
         });    
         
 	 $('input[type=tel]').mask("+7(999) 999-9999");
+		
+//		$.datepicker.setDefaults(
+//			$.extend($.datepicker.regional["ru"])
+//		);
+//		$(".date").datepicker({ showSecond: false });										
+		
                
      $(".call-back-form").each(function() {
             var it = $(this);
@@ -84,15 +117,11 @@ var Site = new function () {
                             thisForm.find(value[i].old).html(newForm);
                         }
                     }    
-                    
-                    thisForm.find("input[type='tel']").val("+375 " + thisForm.find("input[type='tel']").val());                    
-                    var str = thisForm.serialize();
-                    thisForm.find("input").val("");                                      
-					    					
+					                    
                     $.ajax({
                         type: "POST",
                         url: "back-end/main.php",
-                        data: str
+                        data: thisForm.serialize()
                     }).done(function() {
                         
                         $(this).find("input").val("");                                           
@@ -110,14 +139,58 @@ var Site = new function () {
                     return false;
                 },
                 success: function() {},
-                highlight: function(t, errorClass) {
-                    $(t).addClass('error'); 
+                highlight: function(t, errorClass) {                    
+					$(t).hasClass("hasDatepicker") ? $(t).removeClass('error') : $(t).addClass('error'); 
                 },
                 unhighlight: function(element, errorClass, validClass) {
                     $(element).removeClass('error');                    
                 }
             })
         });
+		
+		$(".form-other").each(function(){
+			 var it = $(this);
+			 it.validate({
+			  rules: {
+			   people: { required: true },
+			   phone: { required: true },
+			   //data: { required: true },
+			   time: { required: true }			   
+			  },
+			  messages: {
+			  },
+			  errorPlacement: function(error, element) {
+			  },
+			  submitHandler: function(form) {
+			   var thisForm =$(form);
+			   $.ajax({
+				type: "POST",
+				 url: "back-end/main.php",
+				data: thisForm.serialize()
+			   }).done(function() {
+					$(this).find("input").val("");                                                                   
+					if (thisForm.find("[type='submit']").data("successful") != undefined) {
+						thisForm.parent().animate({height: 0}, 500, function() {$(".thanks").show();});
+					} else  $('#callForm').modal({show: 'true'}).find(".call-answer").addClass("small-window");
+
+					setTimeout(function() {
+						$('.modal').modal('hide');
+						$.magnificPopup.close();
+					}, 3000);                    					
+					$("form").trigger("reset");
+			   });
+			   return false;
+			  },
+			  success: function() {
+			  },
+			  highlight: function(element, errorClass) {
+			   $(element).addClass('error');
+			  },
+			  unhighlight: function(element, errorClass, validClass) {
+			   $(element).removeClass('error');
+			  }
+			 })
+			});
         
          $('.call').magnificPopup({
             fixedContentPos: false,

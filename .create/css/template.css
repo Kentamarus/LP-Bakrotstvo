@@ -58,6 +58,7 @@ div{ margin: 0 auto;}
     top: 50%;
     display: block;
     transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 
 

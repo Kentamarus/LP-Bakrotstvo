@@ -531,9 +531,9 @@ footer address{
     float: left;
 }
 .freedom .item:last-child{ margin-right: 0;}
-.freedom .text-empty{ margin-right: 10px; margin-bottom: 10px; padding-left: 14px; max-width: 220px;}
-.freedom input.small{ width: 120px;}
-.freedom .main-form{ max-width: 940px;}
+.freedom .text-empty{ margin-right: 10px; margin-bottom: 10px; padding-left: 28px; max-width: 200px;}
+.freedom .small{ width: 122px;}
+.freedom .main-form{ max-width: 940px; margin:0 auto; }
 .freedom .inner-big .text-empty:last-child{ margin-right: 0;}
 .freedom .main-form .title{ padding: 0; max-width: 460px; padding-bottom: 40px; margin: 0 auto;}
 
@@ -622,4 +622,34 @@ footer address{
 }
 .no-form .title{
 	line-height: 90px;
+}
+
+
+/*calendar*/
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; }
+.ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+.only-time .ui-datepicker-next,
+.only-time .ui-datepicker-prev,
+.only-time .ui-datepicker-calendar,
+.only-time .ui-datepicker-title{ display: none;}
+/*calendar=========*/
+
+select.text-empty{
+	background-image: url('../images/icons/time_png.png');
+	background-repeat: no-repeat;
+	background-position: 8px  center;
+}
+.text-empty.date{
+    background-image: url(../images/icons/data_png.png);
+	background-repeat: no-repeat;
+    background-position: 8px center;
 }

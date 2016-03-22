@@ -11,8 +11,8 @@
         <link rel="stylesheet" type="text/css" href="style/bundle.css">      
     </head>
 <body>    
-    <div class="container-fluid main">                                       
-                    
+    <div class="container-fluid main">       
+		                    
 		 <div class="modal fade" id="callForm" tabindex="-1" role="dialog" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content pop-up full call-answer">                   
@@ -63,13 +63,14 @@
         </div>
        
        <header class="row">                                                       
-           <div class="container clearfix">
+           <div class="container clearfix">              
+              
                <div class="col-xs-3 item-col">
                    <a href="index.html" class="navbar-brand"></a>
                </div>
                <div class="col-xs-6 item-col item-col-middle">
                    <div class="base">
-                   		<h1 class="title div-table"><i class="div-table-cell">Арбитраж, банктротство юридическихе лиц и граждан</i></h1>
+                   		<h1 class="title div-table"><i class="div-table-cell">Арбитраж, банкротство юридическихе лиц и граждан</i></h1>
                    </div>
                </div>
                <div class="col-xs-3 item-col">
@@ -250,14 +251,7 @@
         <div class="row back minHeight190 no-form">
             <div class="container content">                                
                 <div class="main-form clearfix">
-                    <div class="title size24 line-height text-center">Дальше действовать будем мы!</div>
-<!--
-                    <form class="call-back-form">
-                        <div class="col-sm-4 item-col"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
-                        <div class="col-sm-4 item-col item-col-middle"><input type="tel" required class=" text-empty" name="phone" placeholder="Ваш телефон"></div>
-                        <div class="col-sm-4 item-col"><button type="submit" class="btn btn-primary full">Заказать звонок</button></div>
-                    </form>                    
--->
+                    <div class="title line-height text-center">Дальше действовать будем мы!</div>
                 </div>                
             </div>
         </div>
@@ -356,12 +350,23 @@
                </div>
                 <div class="main-form clearfix">
                     <div class="title size20 line-height text-center">Либо Вы можете записаться на бесплатную консультацию в офисе </div>
-                    <form class="call-back-form">
-                        <div class="item"><input type="text" class="people text-empty" required name="people" placeholder="Ваше имя"></div>
-                        <div class="item"><input type="tel" class="text-empty" required name="phone" placeholder="Ваш телефон"></div>
+                    <form class="form-other" novalidate="novalidate">
+                        <div class="item"><input type="text" class="text-empty" name="people" placeholder="Ваше имя"></div>
+                        <div class="item"><input type="tel" class="text-empty" name="phone" placeholder="Ваш телефон"></div>
                         <div class="item inner-big">
-                            <input type="text" required class="small text-empty" name="date" placeholder="Дата">
-                            <input type="text" required class="small text-empty" name="time" placeholder="Время">
+                            <input type="text" class="small text-empty date" id="datepicker" name="data" placeholder="Дата" aria-required="true" aria-invalid="false">    
+                            <select name="time" class="text-empty small" id="time" aria-required="true" aria-invalid="false">
+							  <option>Время</option>
+							  <option>10:00</option>
+							  <option>11:00</option>
+							  <option>12:00</option>
+							  <option>13:00</option>
+							  <option>14:00</option>
+							  <option>15:00</option>
+							  <option>16:00</option>
+							  <option>17:00</option>
+							  <option>18:00</option>
+						  </select>
                         </div>
                         <div class="item"><button type="submit" class="btn btn-primary">Записаться</button></div>
                     </form>                    
@@ -397,18 +402,20 @@
         </div>
                   
         <footer class="row">
-               <div class="container">                    
-                   <address class="p">Все права защищены 2016 г.</address>
-               </div>
+		   <div class="container">                    
+			   <address class="p">Все права защищены 2016 г.</address>
+		   </div>
         </footer>  
 </div>          
 
-        <script src="libraries/jquery.min.js"></script>        
+        <script src="libraries/jquery-2.2.0.min.js"></script>        
+        <script src="libraries/jquery-ui.min.js"></script>
         <script src="libraries/jquery.maskedinput.min.js"></script>
-        <script src="libraries/jquery.magnific-popup.min.js"></script>
         <script src="libraries/bootstrap.min.js"></script>
+        <script src="libraries/jquery.magnific-popup.min.js"></script>        
         <script src="libraries/jquery.validate.min.js"></script>        
         
         <script src="scripts/scripts.js"></script>                            
+
 </body>
 </html>

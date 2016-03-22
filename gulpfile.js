@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     prefixer = require('gulp-autoprefixer'),   
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),   
-    cssmin = require('gulp-minify-css'),
+    cleanCSS = require('gulp-clean-css'),
     browserSync = require("browser-sync"),   
     gutil = require('gulp-util'),
     concat = require('gulp-concat');
@@ -23,16 +23,21 @@ var file ={
     ],
     css: [
             './.create/css/normalize.css',
-            './bower_components/bootstrap/dist/css/bootstrap.min.css',
+            './.create/css/bootstrap.min.css',
             './.create/css/fonts.css',
             './.create/css/template.css',
             './.create/css/magnific-popup.css',
+            './.create/css/slick.css',
+            './.create/css/jquery-ui.css',
             './.create/css/pop-up.css',
             './.create/css/style.css',
             './.create/css/media.css']    
 } 
 
 var path = {
+	source:{
+		fonts: "./source/fonts/"	
+	},	
     production: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: '.production/',
         js: '.production/scripts/',
@@ -53,11 +58,13 @@ var path = {
         uploads: './.create/uploads/**/*.*',      
         outLib: './.create/libraries/',
         fonts: './.create/fonts/**/*.*',
-        tmp: './.create/tmp/**/*.css'
+        tmp: './.create/tmp/**/*.css',
+		dirFonts: './.create/fonts/',
+		dirStyle: './.create/style/'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         html: './.create/**/*.html',
-        js: './.create/js/**/*.js',
+        js: './.create/scripts/**/*.js',
         css: './.create/css/**/*.css',
         style: './.create/style/**/*.css',
         image: './.create/images/**/*.*',
@@ -99,7 +106,7 @@ gulp.task('html:build', function () {
 
 gulp.task('js:build', function () {
     gulp.src(path.create.js) //Найдем наш main файл        
-        .pipe(uglify().on('error', gutil.log))        
+        //.pipe(uglify().on('error', gutil.log))        
         .pipe(gulp.dest(path.production.js)) //Выплюнем готовый файл в production 
         .pipe(reload({stream: true}));     
 });
@@ -115,15 +122,7 @@ gulp.task('image:build', function () {
         .pipe(gulp.dest(path.production.img)) //И бросим в production       
 });
 
-
 gulp.task('js:set', function () {    
-//    var str = "";
-//    for (var i=0; i<fileToSite.js.length; i++ )
-//        {
-//            str += "'"+fileToSite.js[i]+"'";
-//            if (i+1< fileToSite.js.length) str += ","
-//        }    
-    //str = "["+str+"]";
     gulp.src([ file.js[0], file.js[1] ])    
         .pipe(gulp.dest(path.create.outLib))
         .pipe(gulp.dest(path.production.libs)) 
@@ -131,15 +130,14 @@ gulp.task('js:set', function () {
 });
 
 gulp.task('css-concat', function () {         
-    return gulp.src([file.css[0], file.css[1], file.css[2], file.css[3], file.css[4], file.css[5], file.css[6], file.css[7] ])
+    return gulp.src([file.css[0], file.css[1], file.css[2], file.css[3], file.css[4], file.css[5], file.css[6], file.css[7], file.css[8], file.css[9] ])
         .pipe(concat(concatConfig.file))        
         .pipe(gulp.dest('.create/tmp'))
 });
                      
 gulp.task('css-build', function () {
   return gulp.src(path.create.tmp)    
-        //.pipe(cssmin()) //Сожмем        
-        .pipe(gulp.dest('./.create/style/'))
+        .pipe(gulp.dest(path.create.dirStyle))
         .pipe(gulp.dest(path.production.style))
         .pipe(reload({stream: true}));  
 });
@@ -163,6 +161,7 @@ gulp.task('uploads:build', function () {
 gulp.task('libs:build', function () {
     gulp.src(path.create.libs) //Выберем наши библиотеки        
         .pipe(gulp.dest(path.production.libs)) //И бросим в production 
+		.pipe(reload({stream: true}));  
 });
 
 gulp.task('fonts:build', function () {
@@ -198,6 +197,9 @@ gulp.task('watch', function(){
     });   
     watch([path.watch.js], function(event, cb) {
         gulp.start('js:build');
+    });
+    watch([path.watch.libs], function(event, cb) {
+        gulp.start('libs:build');
     });
     watch([path.watch.image], function(event, cb) {
         gulp.start('image:build');
